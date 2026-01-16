@@ -2,12 +2,27 @@
 
 import Image from 'next/image';
 import './globals.css';
+import { useRef, useState } from 'react';
 
 export default function Home() {
   // Função para tocar som
   const playSound = () => {
     const audio = new Audio('/click.mp3'); // coloque o arquivo em /public
     audio.play();
+  };
+
+  // Player de música estilizado
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  const togglePlay = () => {
+    if (!audioRef.current) return;
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
   };
 
   return (
@@ -66,9 +81,14 @@ export default function Home() {
         </a>
       </div>
 
-      <audio controls autoPlay loop className="player">
-        <source src="/musica.mp3" type="audio/mpeg" />
-      </audio>
+      {/* Player estilizado */}
+      <div className="music-player">
+        <audio ref={audioRef} src="/musica.mp3" autoPlay loop />
+        <h3 className="player-title">🎵 TROPA DO DRIP</h3>
+        <button onClick={togglePlay} className="player-button">
+          {isPlaying ? "⏸ Pausar" : "▶ Tocar"}
+        </button>
+      </div>
     </main>
   );
 }
