@@ -46,23 +46,23 @@ export default function Home() {
         </a>
 
         <a 
-          href="https://instagram.com/seuuser" 
+          href="https://discord.com/users/972178158117879808" 
           className="drip-button" 
           target="_blank" 
           rel="noopener noreferrer" 
           onClick={playSound}
         >
-          Instagram
+          Discord Drip 
         </a>
 
         <a 
-          href="https://youtube.com/@seucanal" 
+          href="https://discord.com/users/706612236315131944" 
           className="drip-button" 
           target="_blank" 
           rel="noopener noreferrer" 
           onClick={playSound}
         >
-          YouTube
+          Minha Mulher
         </a>
       </div>
 
